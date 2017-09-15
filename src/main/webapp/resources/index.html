@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testpage</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <link href="/resources/jquery-ui.min.css" rel="stylesheet"/>
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<script type="text/javascript" src="//cdn.rawgit.com/henrya/js-jquery/master/BinaryTransport/jquery.binarytransport.js"></script>
+    	<script type="text/javascript" src="knockout-3.3.0.js"></script>
+	<script type="text/javascript" src="//cdn.rawgit.com/dcodeIO/protobuf.js/6.8.0/dist/protobuf.js"></script>
+    	<script type="text/javascript" src="getcustomers.js"></script>
+<style type="text/css">
+
+table { border-collapse: collapse;}
+table, td, th { border: 1px solid black; } 
+td { vertical-align: top;}
+
+#overlay {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('images/loading-img.gif') 
+                50% 50% 
+                no-repeat;
+    }
+pre {
+    white-space: pre-wrap; overflow: auto;
+} 
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+   
+</style>
+</head>
+<body>
+<div id="overlay"></div>
+<div id="update-result-message" title="update result" style="display:none;">
+  <pre id="update-result-message-data"></pre>
+</div>
+
+<div id="view-msg-dialog" title="view aq message contents" style="display:none;">
+    <table id="view-msg-tbl" class="nested">
+    <tbody>
+    <tr><td><span id="view-msg-response" width></span></td></tr>
+    <tr><td><textarea style="display:none;height:100%;width:100%;" id="view-msg-body" ></textarea></td></tr>
+    </tbody>
+    </table>
+</div>
+
+<table id="gridlist-tbl" align="center">
+<caption>Example of simultaneous support of JSON and Google Protobuf protocols over REST services<button data-bind='click: addRow'>add new row</caption>
+<thead>
+      <tr>
+	    <td colspan="2">id</td><td>First name</td><td>Family name</td><td>Email</td><td>Phone</td><td>Birth date</td>
+      </tr>
+</thead>
+<tbody data-bind="foreach: customerslist">
+   <tr>
+       <td><button data-bind="click: $parent.deleteRow">X</button></td>
+    	<td><input type="text" data-bind="value: id"/></td>
+	    <td><input type="text" data-bind="value: firstName"/></td>
+	    <td><input type="text" data-bind="value: lastName"/></td>
+        <td><input type="text" data-bind="value: email"/></td>
+        <td><input type="text" data-bind="value: mobile"/></td>
+	    <td><input type="text" data-bind="value: dateOfBirth"/></td>
+     </tr>
+</tbody>
+</table>
+<center><button id="submit-gridlist-btn" data-bind="click: updateGridJSON">update via JSON</button></center>
+<center><button id="submit-gridlist-protobuf-btn" data-bind="click: updateGridProtoBuf">update via ProtoBuf</button></center>
+
+</html>

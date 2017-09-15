@@ -1,0 +1,30 @@
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+
+syntax = "proto2";
+
+package custbufs;
+
+option java_package = "fr.terem.protobuf";
+option java_outer_classname = "CustomerProtos";
+option optimize_for = SPEED;
+
+message UpdateStatus {
+	required string statusCode = 1;
+	optional string errorStack = 2;
+}
+
+message Customers {
+	repeated Customer customerslist = 1;
+}
+
+message Customer {
+	required string id = 1;
+	required string firstName = 2;
+	required string lastName = 3;
+	required string email = 4;
+	required string mobile = 5;
+	required string dateOfBirth = 6;
+}
+
