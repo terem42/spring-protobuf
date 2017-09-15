@@ -48,7 +48,7 @@ protobuf.load("customer.proto", function (err, root) {
      displayMessage(err);
      return;
     }
-    // Obtain message handlers
+    // Obtain protobuf message handlers
     customer_list_protobuf_handler = root.lookupType("custbufs.Customers");
     customer_protobuf_handler = root.lookupType("custbufs.Customer");
     updatemsg_protobuf_handler = root.lookupType("custbufs.UpdateStatus");
