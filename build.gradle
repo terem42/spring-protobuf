@@ -84,14 +84,14 @@ dependencies {
 	 	'com.jayway.jsonpath:json-path:2.3.0',
         	'com.jayway.jsonpath:json-path-assert:2.3.0'
         )
-	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
 
         integTestCompile ( 
-		sourceSets.main.output,
+		    sourceSets.main.output,
          	configurations.testCompile,
         	sourceSets.test.output
 	)
-        integTestRuntime configurations.testRuntime
+    integTestRuntime configurations.testRuntime
 	
 }
 

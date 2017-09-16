@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="spring-protobuf_integTest" target="1.7" />
       <module name="spring-protobuf_main" target="1.7" />
       <module name="spring-protobuf_test" target="1.7" />
     </bytecodeTargetLevel>

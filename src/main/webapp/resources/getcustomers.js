@@ -73,6 +73,7 @@ var gridViewModel = function () {
         type: "GET",
         dataType: 'binary',
         responseType: 'arraybuffer',
+        contentType: "application/x-protobuf",
         processData: false,
         url: '/spring-protobuf/customers-protobuf',
         timeout: 3000,

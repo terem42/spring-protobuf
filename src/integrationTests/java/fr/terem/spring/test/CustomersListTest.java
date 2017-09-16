@@ -2,6 +2,7 @@ package fr.terem.spring.test;
 
 import fr.terem.protobuf.CustomerProtos;
 import com.googlecode.protobuf.format.JsonFormat;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,14 +29,15 @@ public class CustomersListTest {
 
     @Test
     public void whenUsingHttpClient_thenSucceed() throws IOException {
-        InputStream responseStream = executeHttpRequest(TEST_BASE_URL+"/customers-protobuf");
+        InputStream responseStream = executeProtobufHttpRequest(TEST_BASE_URL+"/customers-protobuf");
         String jsonOutput = convertProtobufMessageStreamToJsonString(responseStream);
         assertResponse(jsonOutput);
     }
 
-    private InputStream executeHttpRequest(String url) throws IOException {
+    private InputStream executeProtobufHttpRequest(String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(url);
+        request.setHeader(HttpHeaders.CONTENT_TYPE, "application/x-protobuf");
         HttpResponse httpResponse = httpClient.execute(request);
         return httpResponse.getEntity().getContent();
     }
