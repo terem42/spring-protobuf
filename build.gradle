@@ -13,7 +13,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'org.akhikhl.gretty:gretty:1.4.2'
+    classpath 'org.akhikhl.gretty:gretty:2.0.0'
     classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.3'
   }
 }
@@ -26,12 +26,13 @@ war {
 }
 
 
-defaultTasks 'jettyRunWar'
+defaultTasks 'clean','build','appRun'
 
 gretty {
   httpPort = 8081
   contextPath = 'spring-protobuf'
   servletContainer = 'jetty9'
+  integrationTestTask = 'integrationTest'
 }
 
 // JDK 7
@@ -43,20 +44,58 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {  
+    integTest {
+        java.srcDir file('src/integrationTests/java')
+        resources.srcDir file('src/integrationTests/resources')
+    }
+}
+
+task integrationTest(type: Test) {  
+    testClassesDir = sourceSets.integTest.output.classesDir
+    classpath = sourceSets.integTest.runtimeClasspath
+}
+
+
+
+build.dependsOn integrationTest
+
+configurations.all {
+   exclude group: "commons-logging", module: "commons-logging"
+}
+
 dependencies {
  
-	compile 'ch.qos.logback:logback-classic:1.1.3'
-	compile 'org.springframework:spring-webmvc:4.3.11.RELEASE'
-	compile 'com.fasterxml.jackson.core:jackson-databind:2.7.5'
-	compile 'com.google.protobuf:protobuf-java:3.4.0'
-	compile 'com.googlecode.protobuf-java-format:protobuf-java-format:1.4'
+	compile (
+		'ch.qos.logback:logback-classic:1.1.3',
+		'org.springframework:spring-webmvc:4.3.11.RELEASE',
+		'org.slf4j:jcl-over-slf4j:1.7.12',
+		'com.fasterxml.jackson.core:jackson-databind:2.7.5',
+		'com.google.protobuf:protobuf-java:3.4.0',
+		'com.googlecode.protobuf-java-format:protobuf-java-format:1.4'
+	)
 
+	testCompile ( 
+		'junit:junit:4.11',
+		'com.google.code.gson:gson:2.8.1',
+	 	 'org.apache.httpcomponents:httpclient:+',
+        	'org.hamcrest:hamcrest-library',
+		// 'org.springframework:spring-test:4.3.11.RELEASE',
+	 	'com.jayway.jsonpath:json-path:2.3.0',
+        	'com.jayway.jsonpath:json-path-assert:2.3.0'
+        )
 	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+
+        integTestCompile ( 
+		sourceSets.main.output,
+         	configurations.testCompile,
+        	sourceSets.test.output
+	)
+        integTestRuntime configurations.testRuntime
 	
 }
 
 protobuf {
-  // Configure the protoc executable source
   protoc {
     // Download from repository, or you can use locally available compuler if you wish so
     artifact = 'com.google.protobuf:protoc:3.4.0'
@@ -69,3 +108,5 @@ idea {
         sourceDirs += file("${buildDir}/generated/source/proto/main/java");
     }
 }
+
+
