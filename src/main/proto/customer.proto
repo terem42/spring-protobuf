@@ -20,7 +20,7 @@ message Customers {
 }
 
 message Customer {
-	required string id = 1;
+	required uint64 id = 1;
 	required string firstName = 2;
 	required string lastName = 3;
 	required string email = 4;

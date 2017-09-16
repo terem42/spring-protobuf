@@ -42,7 +42,7 @@ public class CustomerRestController {
 	private Customer convertCustomerProto2JSON(CustomerProtos.Customer in) {
 		if (in == null) return null;
 		Customer repo_customer = new Customer(
-				Long.parseLong(in.getId()),in.getFirstName(),in.getLastName(),in.getEmail(),in.getMobile()
+				in.getId(),in.getFirstName(),in.getLastName(),in.getEmail(),in.getMobile()
 		);
 		try {
 			repo_customer.setDateOfBirth(dformatter.parse(in.getDateOfBirth()));
@@ -55,7 +55,7 @@ public class CustomerRestController {
 	private CustomerProtos.Customer convertCustomerJSON2Proto(Customer in) {
 		if (in == null) return null;
 		CustomerProtos.Customer proto_customer = CustomerProtos.Customer.newBuilder()
-				.setId(in.getId().toString())
+				.setId(in.getId())
 				.setFirstName(in.getFirstName())
 				.setLastName(in.getLastName())
 				.setEmail(in.getLastName())

@@ -26,7 +26,7 @@ war {
 }
 
 
-defaultTasks 'clean','build','appRun'
+defaultTasks 'clean','build','appRunWar'
 
 gretty {
   httpPort = 8081
