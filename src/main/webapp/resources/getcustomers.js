@@ -113,7 +113,7 @@ var gridViewModel = function () {
         $("#overlay").fadeIn();
         $.ajax({
             type: 'POST'
-            , url: '/spring-protobuf/customers'
+            , url: '/spring-protobuf/customers-protobuf'
             , data: ko.toJSON(self.customerslist)
             , contentType: "application/json; charset=UTF-8"
             , dataType: 'json'

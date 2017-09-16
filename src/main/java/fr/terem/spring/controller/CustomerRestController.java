@@ -28,7 +28,7 @@ public class CustomerRestController {
 		return customerDAO.list();
 	}
 
-	@PostMapping(value = "/customers")
+	@PostMapping(value = "/customers-protobuf", consumes = "application/json")
 	public ResponseEntity postCustomersListJSON(@RequestBody List<Customer> clist) {
 	    logger.info("postCustomersListJSON()");
         customerDAO.list().clear();
