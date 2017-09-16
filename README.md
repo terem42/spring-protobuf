@@ -1,7 +1,7 @@
 # spring-protobuf
-Example of simultaneous support of JSON and Google Protobuf protocols over REST services
+Example of simultaneous support of JSON and Google Protobuf protocols over Spring REST services
 
-This is a fully working self-contained example demoing usage of Google profobuf protocol for exchanging date in/out of Spring backed app
+This is a fully working self-contained example demoing usage of Google profobuf protocol from backend to browser-backed frontend 
 
 ## How to run
 Clone repo to your folder, then run gradlew from commandline The app will download all nesessary artefacts, including Google protobuf compiler
