@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06ac145a-a0b2-4e71-bd5c-8ab0e8c0cc67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/spring-protobuf.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -89,8 +86,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state relative-caret-position="19">
+              <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -1444,7 +1441,7 @@
       <option name="presentableId" value="Default" />
       <updated>1505583706212</updated>
       <workItem from="1505583707428" duration="1061000" />
-      <workItem from="1505585375150" duration="112000" />
+      <workItem from="1505585375150" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="added protobuf content types">
       <created>1505584514247</created>
@@ -1453,15 +1450,21 @@
       <option name="project" value="LOCAL" />
       <updated>1505584514247</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="removed obsolete css link">
+      <created>1505585533185</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1505585533185</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1173000" />
+    <option name="totallyTimeSpent" value="1252000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1507,7 +1510,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added protobuf content types" />
-    <option name="LAST_COMMIT_MESSAGE" value="added protobuf content types" />
+    <MESSAGE value="removed obsolete css link" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed obsolete css link" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1593,8 +1597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="19">
+          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
