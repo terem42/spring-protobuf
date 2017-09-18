@@ -1,4 +1,4 @@
-# spring-protobuf
+# spring-protobuf   [![Build Status](https://travis-ci.org/andrey42/spring-protobuf.svg?branch=master)](https://travis-ci.org/andrey42/spring-protobuf)
 This is a fully working self-contained example demoing usage of Google profobuf protocol in browser for Spring-based REST services 
 
 ## How to run
