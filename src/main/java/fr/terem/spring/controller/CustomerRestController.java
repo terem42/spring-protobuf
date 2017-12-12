@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.RequestEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -65,17 +67,17 @@ public class CustomerRestController {
 
 
     @GetMapping(value = "/customers-protobuf", consumes = "application/x-protobuf", produces = "application/x-protobuf")
-    public CustomerProtos.Customers getCustomersListProtobuf() {
+    public ResponseEntity<CustomerProtos.Customers> getCustomersListProtobuf() {
         logger.info("getCustomersListProtobuf()");
         CustomerProtos.Customers.Builder proto_cust_list_builder = CustomerProtos.Customers.newBuilder();
         for (Customer cust_entry : customerDAO.list()) {
             proto_cust_list_builder.addCustomerslist(convertCustomerJSON2Proto(cust_entry));
         }
-        return proto_cust_list_builder.build();
+        return ResponseEntity.ok(proto_cust_list_builder.build());
     }
 
     @PostMapping(value = "/customers-protobuf", consumes = "application/x-protobuf", produces = "application/x-protobuf")
-    public CustomerProtos.UpdateStatus postCustomersListProtobuf(@RequestBody CustomerProtos.Customers in) {
+    public ResponseEntity<CustomerProtos.UpdateStatus> postCustomersListProtobuf(@RequestBody CustomerProtos.Customers in) {
         logger.debug("postCustomersListProtobuf()");
         customerDAO.list().clear();
 
@@ -83,10 +85,11 @@ public class CustomerRestController {
         for (CustomerProtos.Customer cust_entry : in.getCustomerslistList()) {
             customerDAO.list().add(convertCustomerProto2JSON(cust_entry));
         }
+
         CustomerProtos.UpdateStatus.Builder proto_updatemsg_builder = CustomerProtos.UpdateStatus.newBuilder();
         proto_updatemsg_builder.setStatusCode("success");
         logger.debug(" customerDAO.list() new size = " + customerDAO.list().size());
-        return proto_updatemsg_builder.build();
+        return ResponseEntity.ok(proto_updatemsg_builder.build());
     }
 
 }
