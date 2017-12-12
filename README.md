@@ -5,7 +5,7 @@
 This is a fully working self-contained example demoing usage of Google profobuf protocol in browser for Spring-based REST services 
 
 ## How to run
-Clone or download this repo to your folder, then run gradlew from commandline and open browser at http://localhost:8181/spring-protobuf
+Clone or download this repo to your folder, then run gradlew from commandline and open browser at http://localhost:8081/spring-protobuf
 The html form will have fully editable grid, with updates working both via traditional JSON and Protobuf protocols
 
 To explore more, you can open dev console in the browser to see the diffirences in JSON and protobuf protocols on how data in being transferred in both directions.
