@@ -8,6 +8,7 @@ This is a fully working self-contained example demoing usage of Google profobuf 
 Clone or download this repo to your folder, then run gradlew from commandline and open browser at http://localhost:8081/spring-protobuf
 The html form will have fully editable grid, with updates working both via traditional JSON and Protobuf protocols
 
+
 To explore more, you can open dev console in the browser to see the diffirences in JSON and protobuf protocols on how data in being transferred in both directions.
 Console output from Jetty might come handy too, to see what controllers are mapped and how they're being called.
 
